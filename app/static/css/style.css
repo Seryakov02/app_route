@@ -1,0 +1,37 @@
+nav {
+    margin-bottom: 50px
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px
+}
+
+.logo {
+    width: 100px;
+    height: 25px
+}
+
+.card, .form {
+    margin-bottom: 30px
+}
+
+.shedule {
+    margin-top: 30px;
+    width: 100px;
+}
+
+.wrap {
+    text-align: center;
+}
+
+.alignment {
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}

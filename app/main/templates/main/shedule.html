@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Расписание автобусов
+{% endblock %}
+
+{% block content %}
+    {% for el in shedule %}
+        <h6>Пригородный маршрут:</h6>
+        <p>{{el.first_point_of_departure}} - {{el.second_point_of_departure}}</p>
+        <h6>Отправление из {{el.first_point_of_departure}}:</h6>
+        <p>{{el.first_shedule}}</p>
+        <h6>Отправление из {{el.second_point_of_departure}}:</h6>
+        <p>{{el.second_shedule}}</p>
+        <h6>Маршрут следования</h6>
+        <p>{{el.route}}</p>
+        <h6>Стоимость проезда:</h6>
+        <p>{{el.ticket_price}}</p>
+    {% endfor %}
+{% endblock %}

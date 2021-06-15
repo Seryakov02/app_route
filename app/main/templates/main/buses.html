@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="list-group">
+        <div class="row">
+            {% for el in buses %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                          {% if el.image %}
+                            <img src="{{ el.image.url }}" class="card-img-top">
+                          {% endif %}
+                          <h5 class="card-title">Автобус № {{el.number}}</h5>
+                          <p>Имя водителя: {{ el.driver }}</p>
+                          <p>Число мест: {{ el.number_of_places }}</p>
+                          <p>Марка автобуса: {{ el.bus_brand }}</p>
+                          <a href="{% url 'shedule' el.slug %}" class="btn btn-primary">Полная информация</a>
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+      {% for p in buses.paginator.page_range %}
+        <li class="page-item"><a class="page-link" href="?page={{ p }}">{{p}}</a></li>
+      {% endfor %}
+  </ul>
+</nav>
+
+{% endblock %}
+
